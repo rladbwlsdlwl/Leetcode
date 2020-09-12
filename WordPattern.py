@@ -11,7 +11,7 @@ class Solution:
                     if(str[p]==i):     
                         return False
                     
-                    table[pattern[p]]=str[p]
+                table[pattern[p]]=str[p]
             else:
                 if(table[pattern[p]]==str[p]):
                     continue
