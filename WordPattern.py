@@ -12,7 +12,7 @@ class Solution:
                         return False
                     
                     table[pattern[p]]=str[p]
-           else:
+            else:
                 if(table[pattern[p]]==str[p]):
                     continue
                 else:
