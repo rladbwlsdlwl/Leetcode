@@ -11,12 +11,12 @@ class Solution:
                     if(str[p]==i):     
                         return False
                     
-                    table[pattern[p]]=str[p]
+                table[pattern[p]]=str[p]
+            else:
+                if(table[pattern[p]]==str[p]):
+                    continue
                 else:
-                    if(table[pattern[p]]==str[p]):
-                        continue
-                    else:
-                        return False
+                    return False
         
         return True
                                                                                                                                                                                                                                                                     
