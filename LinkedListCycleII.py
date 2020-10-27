@@ -7,7 +7,6 @@
 class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
         if(not head): return None
-        
         arr=[]
         while(head.next):
             if(head in arr):
@@ -16,3 +15,4 @@ class Solution:
             head=head.next
             
         return None
+
