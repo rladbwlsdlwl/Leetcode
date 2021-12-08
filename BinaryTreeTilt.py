@@ -6,20 +6,15 @@
 #         self.right = right
 class Solution:
     def findTilt(self, root: TreeNode) -> int:
-        def subtreeNode(node):
-            if(node==None): return 0
-            return node.val+subtreeNode(node.left)+subtreeNode(node.right)
+        ans=[] 
+        def dfs(node): # postorder
+            if node==None:
+                return 0
+            left=dfs(node.left)
+            right=dfs(node.right)
+            ans.append(abs(left-right)) # nonlocal
+            
+            return left+right+node.val
         
-        if(root==None): return 0 #empty list
-        
-        temp=[root]
-        while(len(temp)):
-            p=temp.pop()
-            left=subtreeNode(p.left)
-            right=subtreeNode(p.right)
-            p.val=left-right if(left>right) else right-left
-        
-            if(p.left): temp.append(p.left)
-            if(p.right): temp.append(p.right)
-                
-        return subtreeNode(root)
+        p=dfs(root)
+        return sum(ans)
