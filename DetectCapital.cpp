@@ -1,26 +1,27 @@
 class Solution {
 public:
+    bool isLower(string word, int start, int end){
+        for(int i=start; i<end; i++){
+            if(word[i]-'a' < 0)
+                return false;
+        }
+
+        return true;
+    }
+
+    bool isUpper(string word, int start, int end){
+        for(int i=start; i<end; i++){
+            if(word[i]-'a'>=0)
+                return false;
+        }
+
+        return true;
+    }
+
     bool detectCapitalUse(string word) {
-	bool stopped=false;
-	if(word.size()>1){
-	    bool upper=('A'<=word[0] && word[0]<='Z' && 'A'<=word[1] && word[1]<='Z' ? true : false);
-	    for(int i=1; i<word.size(); i++){
-		if(upper){
-		    if(!('A'<=word[i] && word[i]<='Z')){
-			stopped=true;
-			break;
-		    }
-		}else{
-		    if(!('a'<=word[i] && word[i]<='z')){
-			stopped=true;
-			break;
-		    }
-		}
-	    }
-	}
-	
-	
-	return !stopped;
+        if(word[0] - 'Z' > 0) // first charactor is lower case
+            return isLower(word, 1, word.size());
+        else
+            return isLower(word, 1, word.size()) || isUpper(word, 1, word.size());
     }
 };
-
