@@ -1,15 +1,16 @@
 class Solution:
     def numRescueBoats(self, people: List[int], limit: int) -> int:
-        def bsearch(left,right):
-            nonlocal limit
-            if left<right:
-                if people[left]+people[right]<=limit:
-                    return bsearch(left+1,right-1)+1
-                else:
-                    return bsearch(left,right-1)+1
-            else:
-                return 1 if left==right else 0 
-            
+        cnt=0
+        i,j=0,len(people)-1
         people.sort()
-        return bsearch(0,len(people)-1)
-    
+        
+        while(i<=j):
+            cnt+=1
+            if(people[i]+people[j]<=limit):
+                i+=1
+            j-=1
+            
+        return cnt
+            
+        
+        
