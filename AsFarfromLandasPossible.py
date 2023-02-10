@@ -5,8 +5,6 @@ class Solution:
         dy = [-1, 0, 1, 0]
         dx = [0, 1, 0, -1]
 
-
-        land = [[0 for _ in range(N)] for _ in range(N)]
         visited = [[False for _ in range(N)] for _ in range(N)]
    
         ans = -1
